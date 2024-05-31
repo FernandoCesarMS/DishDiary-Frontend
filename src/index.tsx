@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import InitialScreen from "./routes/InitialScreen";
 import RegisterScreen from "./routes/RegisterScreen";
+import LoginScreen from "./routes/LoginScreen";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterScreen />
+      },
+      {
+        path: "/login",
+        element: <LoginScreen />
       }
     ],
   },

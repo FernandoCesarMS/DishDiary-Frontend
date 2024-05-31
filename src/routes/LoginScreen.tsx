@@ -1,7 +1,7 @@
 import * as CSS from '../App.styles';
 import { useNavigate } from 'react-router-dom';
 
-function RegisterScreen() {
+function LoginScreen() {
   const navigate = useNavigate();
 
   const backToInitialScreen = () => {
@@ -17,19 +17,10 @@ function RegisterScreen() {
             <label htmlFor="cpf">CPF</label>
             <input type="text" id="cpf" name="cpf" required />
 
-            <label htmlFor="phone">Telefone</label>
-            <input type="tel" id="phone" name="phone" required />
-
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
-
             <label htmlFor="password">Senha</label>
             <input type="password" id="password" name="password" required />
 
-            <label htmlFor="confirm-password">Confirmação de Senha</label>
-            <input type="password" id="confirm-password" name="confirm-password" required />
-
-            <CSS.ButtonRegisterScreen type="submit">Registrar</CSS.ButtonRegisterScreen>
+            <CSS.ButtonRegisterScreen type="submit">Entrar</CSS.ButtonRegisterScreen>
           </form>
         </CSS.FormContainer>
       </CSS.ContentInitialScreen>
@@ -37,4 +28,4 @@ function RegisterScreen() {
   );
 }
 
-export default RegisterScreen;
+export default LoginScreen;
