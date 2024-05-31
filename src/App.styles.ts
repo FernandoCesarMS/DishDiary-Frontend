@@ -9,6 +9,9 @@ export const ContainerInitialScreen = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    display: flex; /* Habilita flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
 
     &::before {
         content: '';
@@ -27,3 +30,32 @@ export const ContainerInitialScreen = styled.div`
         z-index: 2;
     }
 `;
+
+export const ContentInitialScreen = styled.div`
+    z-index: 3;
+    display: flex; /* Habilita flexbox para o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 30%;
+        height: 15%;
+    }
+`;
+
+export const ButtonInitialScreen = styled.button`
+    margin-top: 5vh;
+    background-color: transparent;
+    border: 2px solid white; /* Borda sólida branca */
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    height: 50px;
+    width: 50vw;
+    cursor: pointer;
+`;
+
+
+
