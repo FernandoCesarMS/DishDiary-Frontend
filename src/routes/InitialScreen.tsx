@@ -3,7 +3,7 @@ import logotype from '../assets/pngegg.png'
 
 function InitialScreen() {
   return (
-    <CSS.ContainerInitialScreen>
+    <CSS.ContainerWithBackgroundImage>
       <CSS.ContentInitialScreen>
         <img src={logotype} alt="logotype" />
         <CSS.ButtonInitialScreen>
@@ -13,7 +13,7 @@ function InitialScreen() {
           Cadastrar-se
         </CSS.ButtonInitialScreen>
       </CSS.ContentInitialScreen>
-    </CSS.ContainerInitialScreen>
+    </CSS.ContainerWithBackgroundImage>
   );
 }
 

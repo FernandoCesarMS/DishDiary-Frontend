@@ -4,7 +4,8 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Explanation from "./routes/InitialScreen";
+import InitialScreen from "./routes/InitialScreen";
+import RegisterScreen from "./routes/RegisterScreen";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +14,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Explanation />
+        element: <InitialScreen />
       },
+      {
+        path: "/register",
+        element: <RegisterScreen />
+      }
     ],
   },
 ]);
