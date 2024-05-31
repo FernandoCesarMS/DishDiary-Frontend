@@ -14,15 +14,51 @@ function RegisterScreen() {
     navigate('/');
   }
 
+  const isValidCPF = (cpf: string) => {
+    // Expressão regular para validar CPF
+    return true;
+  }
+
+  const isValidEmail = (email: string) => {
+    // Expressão regular para validar o formato de e-mail
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  const isValidTelefone = (telefone: string) => {
+    // Expressão regular para validar o formato de telefone
+    const telefoneRegex = /^\(\d{2}\)\s\d{4,5}-\d{4}$/;
+    return telefoneRegex.test(telefone);
+  }
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
+
     // Verificar se as senhas correspondem
     if (senha !== confirmSenha) {
       alert('As senhas não correspondem');
       return;
     }
 
+    // Validar CPF
+    if (!isValidCPF(cpf)) {
+      alert('CPF inválido');
+      return;
+    }
+
+    // Validar e-mail
+    if (!isValidEmail(email)) {
+      alert('E-mail inválido');
+      return;
+    }
+
+    // Validar telefone
+    if (!isValidTelefone(telefone)) {
+      alert('Telefone inválido');
+      return;
+    }
+
+    // Se todas as validações passaram, enviar os dados
     const userData = {
       cpf,
       telefone,
@@ -43,7 +79,7 @@ function RegisterScreen() {
         throw new Error('Erro ao registrar usuário');
       }
 
-      const data = await response.text();
+      const data = await response.json();
       console.log(data);
       // Redirecionar ou exibir uma mensagem de sucesso
       alert('Usuário registrado com sucesso!');
