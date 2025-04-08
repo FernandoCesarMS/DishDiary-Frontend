@@ -8,6 +8,7 @@ import InitialScreen from "./routes/initialscreen/InitialScreen";
 import ExperienceScreen from "./routes/experiences/ExperiencesScreen";
 import CreateAccountScreen from "./routes/createaccount/CreateAccountScreen";
 import LoginScreen from "./routes/login/LoginScreen";
+import AllExperiencesScreen from "./routes/allexperiences/AllExperiencesScreen";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginScreen />
+      },
+      {
+        path: "/explore",
+        element: <AllExperiencesScreen />
       }
     ],
   },

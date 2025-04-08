@@ -11,6 +11,10 @@ export default function LoginScreen() {
     navigate('/');
   }
 
+  const login = () => {
+    navigate('/explore');
+  }
+
   return (
     <div className={styles.container}>
       {/* Back button */}
@@ -65,7 +69,7 @@ export default function LoginScreen() {
               <label className={styles.showPasswordLabel}>Mostrar senha</label>
             </div>
 
-            <button type="submit" className={styles.createAccountButton}>
+            <button type="submit" className={styles.createAccountButton} onClick={login}>
               Entrar
             </button>
           </form>
