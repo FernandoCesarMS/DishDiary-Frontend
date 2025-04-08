@@ -1,7 +1,21 @@
 import styles from "./Initialscreen.module.css"
 import { Home, CookingPot, Bolt } from "lucide-react"
+import { useNavigate } from 'react-router-dom';
 
 export default function InitialScreen() {
+  const navigate = useNavigate();
+  const loginRoute = () => {
+    navigate('/login');
+  }
+
+  const createAccountRoute = () => {
+    navigate('/create-account');
+  }
+
+  const experiencesRoute = () => {
+    navigate('/experiences');
+  }
+
   return (
     <div className={styles.container}>
       {/* Main content */}
@@ -14,10 +28,10 @@ export default function InitialScreen() {
           <p className={styles.tagline}>Registre suas experiências culinárias.</p>
 
           {/* Sign In button */}
-          <button className={styles.signInButton}>Entrar</button>
+          <button className={styles.signInButton} onClick={loginRoute}>Entrar</button>
 
           {/* Sign Up button */}
-          <button className={styles.signUpButton}>Cadastrar</button>
+          <button className={styles.signUpButton} onClick={createAccountRoute}>Cadastrar</button>
 
           {/* Version */}
           <p className={styles.version}>Version 1.0.0</p>
@@ -30,7 +44,7 @@ export default function InitialScreen() {
             <Home className={styles.navIconActive} />
             <span className={styles.navTextActive}>Entrar</span>
           </div>
-          <div className={styles.navItem}>
+          <div className={styles.navItem} onClick={experiencesRoute}>
             <CookingPot className={styles.navIcon} />
             <span className={styles.navText}>Experiências</span>
           </div>

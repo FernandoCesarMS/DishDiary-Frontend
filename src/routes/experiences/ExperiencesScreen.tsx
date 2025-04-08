@@ -1,8 +1,22 @@
 import styles from "./ExperiencesScreen.module.css"
 import { Home, CookingPot, Bolt } from "lucide-react"
 import panela from './panela.png';
+import { useNavigate } from 'react-router-dom';
 
 export default function ExperienceScreen() {
+  const navigate = useNavigate();
+  const loginRoute = () => {
+    navigate('/login');
+  }
+
+  const createAccountRoute = () => {
+    navigate('/create-account');
+  }
+
+  const homeRoute = () => {
+    navigate('/');
+  }
+
   return (
     <div className={styles.container}>
 
@@ -31,11 +45,11 @@ export default function ExperienceScreen() {
             />
           </div>
 
-          <button className={styles.signUpButtonBig}>Cadastrar</button>
+          <button className={styles.signUpButtonBig} onClick={createAccountRoute}>Cadastrar</button>
 
           <div className={styles.alreadyMember}>
             <span>Já possui cadastro? </span>
-            <div className={styles.signInLink}>
+            <div className={styles.signInLink} onClick={loginRoute}>
               Entrar
             </div>
           </div>
@@ -46,7 +60,7 @@ export default function ExperienceScreen() {
       {/* Bottom navigation */}
       <div className={styles.bottomNav}>
         <div className={styles.navItems}>
-          <div className={styles.navItem}>
+          <div className={styles.navItem} onClick={homeRoute}>
             <Home className={styles.navIcon} />
             <span className={styles.navText}>Entrar</span>
           </div>

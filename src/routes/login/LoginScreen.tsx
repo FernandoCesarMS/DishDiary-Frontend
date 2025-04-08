@@ -1,6 +1,16 @@
 import styles from "./LoginScreen.module.css"
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginScreen() {
+  const navigate = useNavigate();
+  const createAccountRoute = () => {
+    navigate('/create-account');
+  }
+
+  const homeRoute = () => {
+    navigate('/');
+  }
+
   return (
     <div className={styles.container}>
       {/* Back button */}
@@ -15,6 +25,7 @@ export default function LoginScreen() {
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
+          onClick={homeRoute}
         >
           <path d="m15 18-6-6 6-6" />
         </svg>
@@ -71,7 +82,7 @@ export default function LoginScreen() {
               <span className={styles.dividerLine}></span>
             </div>
 
-            <button className={styles.signInNowButton}>Entre agora</button>
+            <button className={styles.signInNowButton} onClick={createAccountRoute}>Cadastre-se agora</button>
           </div>
         </div>
         {/* Footer */}
