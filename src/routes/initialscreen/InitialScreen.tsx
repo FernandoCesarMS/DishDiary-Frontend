@@ -4,7 +4,6 @@ import { Home, CookingPot, Bolt } from "lucide-react"
 export default function InitialScreen() {
   return (
     <div className={styles.container}>
-      oi
       {/* Main content */}
       <div className={styles.mainContent}>
         <div className={styles.contentWrapper}>
@@ -37,7 +36,7 @@ export default function InitialScreen() {
           </div>
           <div className={styles.navItem}>
             <Bolt className={styles.navIcon} />
-            <span className={styles.navText}>Search</span>
+            <span className={styles.navText}>Config</span>
           </div>
         </div>
         {/* Bottom indicator line */}

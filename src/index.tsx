@@ -5,6 +5,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import InitialScreen from "./routes/initialscreen/InitialScreen";
+import ExperienceScreen from "./routes/experiences/ExperiencesScreen";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <InitialScreen />
+      },
+      {
+        path: "/experiences",
+        element: <ExperienceScreen />
       }
     ],
   },
