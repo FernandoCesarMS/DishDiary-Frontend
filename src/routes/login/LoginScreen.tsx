@@ -12,7 +12,7 @@ export default function LoginScreen() {
   }
 
   const login = () => {
-    navigate('/explore');
+    navigate('/my-experiences');
   }
 
   return (

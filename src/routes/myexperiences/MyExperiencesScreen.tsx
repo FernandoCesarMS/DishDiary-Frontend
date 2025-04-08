@@ -1,4 +1,4 @@
-import styles from "./AllExperiencesScreen.module.css"
+import styles from "./MyExperiencesScreen.module.css"
 import { Compass, CookingPot, BadgePlus } from "lucide-react"
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
@@ -13,11 +13,11 @@ interface Review {
   nota: number;
 }
 
-export default function AllExperiencesScreen() {
+export default function MyExperiencesScreen() {
   const navigate = useNavigate();
 
-  const experiencesRoute = () => {
-    navigate('/my-experiences');
+  const exploreRoute = () => {
+    navigate('/explore');
   }
 
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -46,7 +46,7 @@ export default function AllExperiencesScreen() {
     <div className={styles.container}>
       {/* Header */}
       <div className={styles.myBooksHeader}>
-        <h1>Explorar</h1>
+        <h1>Experiências</h1>
       </div>
       <div className={styles.mainContent}>
         {loading && <p>Carregando...</p>}
@@ -76,12 +76,12 @@ export default function AllExperiencesScreen() {
       <div className={styles.bottomNav}>
         <div className={styles.navItems}>
           <div className={styles.navItem}>
-            <Compass className={styles.navIconActive} />
-            <span className={styles.navTextActive}>Explorar</span>
+            <Compass className={styles.navIcon} onClick={exploreRoute}/>
+            <span className={styles.navText}>Explorar</span>
           </div>
-          <div className={styles.navItem} onClick={experiencesRoute}>
-            <CookingPot className={styles.navIcon} />
-            <span className={styles.navText}>Experiências</span>
+          <div className={styles.navItem}>
+            <CookingPot className={styles.navIconActive} />
+            <span className={styles.navTextActive}>Experiências</span>
           </div>
           <div className={styles.navItem}>
             <BadgePlus className={styles.navIcon} />
