@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import InitialScreen from "./routes/initialscreen/InitialScreen";
 import ExperienceScreen from "./routes/experiences/ExperiencesScreen";
+import CreateAccountScreen from "./routes/createaccount/CreateAccountScreen";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/experiences",
         element: <ExperienceScreen />
+      },
+      {
+        path: "/create-account",
+        element: <CreateAccountScreen />
       }
     ],
   },

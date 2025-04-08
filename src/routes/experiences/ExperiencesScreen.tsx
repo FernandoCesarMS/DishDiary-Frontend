@@ -47,12 +47,12 @@ export default function ExperienceScreen() {
       <div className={styles.bottomNav}>
         <div className={styles.navItems}>
           <div className={styles.navItem}>
-            <Home className={styles.navIconActive} />
-            <span className={styles.navTextActive}>Entrar</span>
+            <Home className={styles.navIcon} />
+            <span className={styles.navText}>Entrar</span>
           </div>
           <div className={styles.navItem}>
-            <CookingPot className={styles.navIcon} />
-            <span className={styles.navText}>Experiências</span>
+            <CookingPot className={styles.navIconActive} />
+            <span className={styles.navTextActive}>Experiências</span>
           </div>
           <div className={styles.navItem}>
             <Bolt className={styles.navIcon} />

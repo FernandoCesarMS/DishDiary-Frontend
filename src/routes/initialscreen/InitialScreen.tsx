@@ -8,7 +8,7 @@ export default function InitialScreen() {
       <div className={styles.mainContent}>
         <div className={styles.contentWrapper}>
           {/* Goodreads logo */}
-          <h1 className={styles.logo}>Rank Rango</h1>
+          <h1 className={styles.logo}>Rank<b>Rango</b></h1>
 
           {/* Tagline */}
           <p className={styles.tagline}>Registre suas experiências culinárias.</p>
