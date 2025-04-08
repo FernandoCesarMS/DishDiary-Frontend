@@ -4,9 +4,7 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import InitialScreen from "./routes/InitialScreen";
-import RegisterScreen from "./routes/RegisterScreen";
-import LoginScreen from "./routes/LoginScreen";
+import InitialScreen from "./routes/initialscreen/InitialScreen";
 
 const router = createBrowserRouter([
   {
@@ -16,14 +14,6 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <InitialScreen />
-      },
-      {
-        path: "/register",
-        element: <RegisterScreen />
-      },
-      {
-        path: "/login",
-        element: <LoginScreen />
       }
     ],
   },
