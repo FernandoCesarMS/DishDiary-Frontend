@@ -18,7 +18,7 @@ export default function AddReviewScreen() {
         e.preventDefault();
 
         const novoReview = {
-            usuario: inputCPF, // supondo que você tenha o CPF disponível no state
+            usuario: inputCPF,
             estabelecimento,
             mensagem,
             prato,
@@ -43,7 +43,6 @@ export default function AddReviewScreen() {
             const data = await response.json();
             console.log('Review enviado com sucesso:', data);
             navigate('/my-experiences', { state: { cpf: inputCPF } });
-            // Redirecionar ou mostrar feedback aqui
         } catch (error) {
             console.error('Erro ao enviar review:', error);
         }
@@ -146,7 +145,7 @@ export default function AddReviewScreen() {
                     </form>
                 </div>
             </div>
-            <div className={styles.bottomNav}>
+            <div className={styles.bottomNav} style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#fff', zIndex: 10 }}>
                 <div className={styles.navItems}>
                     <div className={styles.navItem}>
                         <Compass className={styles.navIcon} onClick={exploreRoute} />
