@@ -32,7 +32,13 @@ export default function AllExperiencesScreen() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('https://dishdiary.onrender.com/api/reviews')
+    fetch('https://dishdiary.onrender.com/api/reviews', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'customer-cpf': inputCPF
+      }
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar dados');
