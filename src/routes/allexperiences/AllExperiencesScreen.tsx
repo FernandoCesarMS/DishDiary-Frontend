@@ -28,7 +28,7 @@ export default function AllExperiencesScreen() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('https://dishdiary.onrender.com/api/reviews')
+    fetch('http://localhost:8080/api/reviews')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar dados');
@@ -55,17 +55,18 @@ export default function AllExperiencesScreen() {
         {loading && <p>Carregando...</p>}
         {error && <p>Erro: {error}</p>}
         {!loading && !error && (
-          <div>
+          <div className={styles.reviewsSection}>
+            <h2 className={styles.sectionTitle}>Últimos reviews</h2>
             {reviews.map((review) => (
               <div className={styles.activityList}>
                 <div className={styles.activityItem}>
                   <div className={styles.activityContent}>
                     <div className={styles.activityTitle}>{review.prato}</div>
                     <div className={styles.activityUser}>
-                    <span>{review.estabelecimento}</span>
+                      <span>{review.estabelecimento}</span>
                     </div>
                     <div className={styles.activityUser}>
-                    <span>{review.usuario}</span>
+                      <span>{review.usuario}</span>
                     </div>
                   </div>
                   <div className={styles.activityTime}>{review.nota} de 100</div>

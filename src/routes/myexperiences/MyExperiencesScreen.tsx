@@ -37,7 +37,7 @@ export default function MyExperiencesScreen() {
 
   useEffect(() => {
     console.log("CPF: %s", inputCPF)
-    fetch(`https://dishdiary.onrender.com/api/reviews/customer/${inputCPF}`)
+    fetch(`http://localhost:8080/api/reviews/customer/${inputCPF}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar dados');
