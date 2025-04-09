@@ -4,9 +4,13 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import InitialScreen from "./routes/InitialScreen";
-import RegisterScreen from "./routes/RegisterScreen";
-import LoginScreen from "./routes/LoginScreen";
+import InitialScreen from "./routes/initialscreen/InitialScreen";
+import ExperienceScreen from "./routes/experiences/ExperiencesScreen";
+import CreateAccountScreen from "./routes/createaccount/CreateAccountScreen";
+import LoginScreen from "./routes/login/LoginScreen";
+import AllExperiencesScreen from "./routes/allexperiences/AllExperiencesScreen";
+import MyExperiencesScreen from "./routes/myexperiences/MyExperiencesScreen";
+import AddReviewScreen from "./routes/addreview/AddReviewScreen";
 
 const router = createBrowserRouter([
   {
@@ -18,12 +22,28 @@ const router = createBrowserRouter([
         element: <InitialScreen />
       },
       {
-        path: "/register",
-        element: <RegisterScreen />
+        path: "/experiences",
+        element: <ExperienceScreen />
+      },
+      {
+        path: "/create-account",
+        element: <CreateAccountScreen />
       },
       {
         path: "/login",
         element: <LoginScreen />
+      },
+      {
+        path: "/explore",
+        element: <AllExperiencesScreen />
+      },
+      {
+        path: "/my-experiences",
+        element: <MyExperiencesScreen />
+      },
+      {
+        path: "/add-experience",
+        element: <AddReviewScreen />
       }
     ],
   },
