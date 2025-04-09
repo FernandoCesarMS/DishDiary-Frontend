@@ -1,7 +1,10 @@
 import styles from "./LoginScreen.module.css"
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 
 export default function LoginScreen() {
+  const [cpf, setCpf] = useState('');
   const navigate = useNavigate();
   const createAccountRoute = () => {
     navigate('/create-account');
@@ -11,9 +14,11 @@ export default function LoginScreen() {
     navigate('/');
   }
 
-  const login = () => {
-    navigate('/my-experiences');
-  }
+  const login = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    navigate('/my-experiences', { state: { cpf } });
+  };
 
   return (
     <div className={styles.container}>
@@ -45,7 +50,13 @@ export default function LoginScreen() {
         <div className={styles.formContainer}>
           <h2 className={styles.createAccountTitle}>Entrar</h2>
           <form className={styles.createAccountForm}>
-            <input type="email" placeholder="CPF" className={styles.formInput} />
+            <input
+              type="text"
+              placeholder="CPF"
+              className={styles.formInput}
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+            />
 
             <input type="password" placeholder="Senha" className={styles.formInput} />
 
@@ -69,7 +80,11 @@ export default function LoginScreen() {
               <label className={styles.showPasswordLabel}>Mostrar senha</label>
             </div>
 
-            <button type="submit" className={styles.createAccountButton} onClick={login}>
+            <button
+              type="submit"
+              className={styles.createAccountButton}
+              onClick={login}
+            >
               Entrar
             </button>
           </form>

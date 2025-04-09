@@ -1,11 +1,20 @@
 import styles from "./MyExperiencesScreen.module.css"
 import { Compass, CookingPot, BadgePlus } from "lucide-react"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+interface Usuario {
+  id: number;
+  cpf: string;
+  telefone: string;
+  nome: string;
+  email: string;
+  senha: string;
+}
 
 interface Review {
   id: number;
-  usuario: string;
+  usuario: Usuario;
   estabelecimento: string;
   mensagem: string;
   prato: string;
@@ -15,9 +24,11 @@ interface Review {
 
 export default function MyExperiencesScreen() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const inputCPF = location.state?.cpf;
 
   const exploreRoute = () => {
-    navigate('/explore');
+    navigate('/explore', { state: { cpf: inputCPF } });
   }
 
   const [reviews, setReviews] = useState<Review[]>([]);
@@ -25,7 +36,8 @@ export default function MyExperiencesScreen() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('https://dishdiary.onrender.com/api/reviews')
+    console.log("CPF: %s", inputCPF)
+    fetch(`https://dishdiary.onrender.com/api/reviews/customer/${inputCPF}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar dados');
@@ -62,7 +74,7 @@ export default function MyExperiencesScreen() {
                     <span>{review.estabelecimento}</span>
                     </div>
                     <div className={styles.activityUser}>
-                    <span>{review.usuario}</span>
+                    <span>{review.usuario.cpf}</span>
                     </div>
                   </div>
                   <div className={styles.activityTime}>{review.nota} de 100</div>

@@ -1,6 +1,6 @@
 import styles from "./AllExperiencesScreen.module.css"
 import { Compass, CookingPot, BadgePlus } from "lucide-react"
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 interface Review {
@@ -15,9 +15,12 @@ interface Review {
 
 export default function AllExperiencesScreen() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const inputCPF = location.state?.cpf;
 
   const experiencesRoute = () => {
-    navigate('/my-experiences');
+    navigate('/my-experiences', { state: { cpf: inputCPF } });
   }
 
   const [reviews, setReviews] = useState<Review[]>([]);
