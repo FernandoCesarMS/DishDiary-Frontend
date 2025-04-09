@@ -42,6 +42,7 @@ export default function AddReviewScreen() {
 
             const data = await response.json();
             console.log('Review enviado com sucesso:', data);
+            navigate('/my-experiences', { state: { cpf: inputCPF } });
             // Redirecionar ou mostrar feedback aqui
         } catch (error) {
             console.error('Erro ao enviar review:', error);
@@ -58,10 +59,10 @@ export default function AddReviewScreen() {
 
     return (
         <div className={styles.container}>
-                  {/* Header */}
-      <div className={styles.myBooksHeader}>
-        <h1>Adicionar review</h1>
-      </div>
+            {/* Header */}
+            <div className={styles.myBooksHeader}>
+                <h1>Adicionar review</h1>
+            </div>
 
             <div className={styles.createAccountContent}>
                 <div className={styles.logoContainer}>
@@ -81,19 +82,19 @@ export default function AddReviewScreen() {
 
                         <input
                             type="text"
-                            placeholder="Descrição"
+                            placeholder="Prato"
                             className={styles.formInput}
-                            value={mensagem}
-                            onChange={(e) => setMensagem(e.target.value)}
+                            value={prato}
+                            onChange={(e) => setPrato(e.target.value)}
                             required
                         />
 
                         <input
                             type="text"
-                            placeholder="Prato"
+                            placeholder="Descrição"
                             className={styles.formInput}
-                            value={prato}
-                            onChange={(e) => setPrato(e.target.value)}
+                            value={mensagem}
+                            onChange={(e) => setMensagem(e.target.value)}
                             required
                         />
 

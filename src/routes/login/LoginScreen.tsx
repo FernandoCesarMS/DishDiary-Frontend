@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 export default function LoginScreen() {
   const [cpf, setCpf] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const createAccountRoute = () => {
     navigate('/create-account');
@@ -14,10 +15,31 @@ export default function LoginScreen() {
     navigate('/');
   }
 
-  const login = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const login = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-
-    navigate('/my-experiences', { state: { cpf } });
+  
+    try {
+      const response = await fetch('https://dishdiary.onrender.com/api/users/login', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'cpf': cpf,
+          'password': password
+        }
+      });
+  
+      if (!response.ok) {
+        throw new Error('CPF ou senha inválidos');
+      }
+  
+      const data = await response.json();
+      console.log('Login realizado:', data);
+  
+      navigate('/my-experiences', { state: { cpf } });
+    } catch (error) {
+      console.error('Erro no login:', error);
+      alert('CPF ou senha inválidos');
+    }
   };
 
   return (
@@ -41,7 +63,6 @@ export default function LoginScreen() {
       </div>
       {/* Main content */}
       <div className={styles.createAccountContent}>
-        {/* Goodreads logo */}
         <div className={styles.logoContainer}>
           <h1 className={styles.logo}>Rank<b>Rango</b></h1>
         </div>
@@ -58,7 +79,13 @@ export default function LoginScreen() {
               onChange={(e) => setCpf(e.target.value)}
             />
 
-            <input type="password" placeholder="Senha" className={styles.formInput} />
+            <input
+              type="password"
+              placeholder="Senha"
+              className={styles.formInput}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
             <div className={styles.showPasswordContainer}>
               <div className={styles.checkbox}>
