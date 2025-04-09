@@ -40,7 +40,6 @@ export default function MyExperiencesScreen() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    console.log("CPF: %s", inputCPF)
     fetch(`https://dishdiary.onrender.com/api/reviews/customer/${inputCPF}`)
       .then((response) => {
         if (!response.ok) {
@@ -64,21 +63,23 @@ export default function MyExperiencesScreen() {
       <div className={styles.myBooksHeader}>
         <h1>Experiências Anteriores</h1>
       </div>
-      <div className={styles.mainContent}>
+
+      {/* Main Content */}
+      <div className={styles.mainContent} style={{ paddingBottom: '80px' }}>
         {loading && <p>Carregando...</p>}
         {error && <p>Erro: {error}</p>}
         {!loading && !error && (
           <div>
             {reviews.map((review) => (
-              <div className={styles.activityList}>
+              <div key={review.id} className={styles.activityList}>
                 <div className={styles.activityItem}>
                   <div className={styles.activityContent}>
                     <div className={styles.activityTitle}>{review.prato}</div>
                     <div className={styles.activityUser}>
-                    <span>{review.estabelecimento}</span>
+                      <span>{review.estabelecimento}</span>
                     </div>
                     <div className={styles.activityUser}>
-                    <span>{review.mensagem}</span>
+                      <span>{review.mensagem}</span>
                     </div>
                   </div>
                   <div className={styles.activityTime}>{review.nota} de 100</div>
@@ -88,8 +89,9 @@ export default function MyExperiencesScreen() {
           </div>
         )}
       </div>
-      {/* Bottom navigation */}
-      <div className={styles.bottomNav}>
+
+      {/* Bottom navigation - fixado */}
+      <div className={styles.bottomNav} style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#fff', zIndex: 10 }}>
         <div className={styles.navItems}>
           <div className={styles.navItem} onClick={exploreRoute}>
             <Compass className={styles.navIcon}/>

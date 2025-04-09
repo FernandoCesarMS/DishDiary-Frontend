@@ -81,7 +81,7 @@ export default function AllExperiencesScreen() {
         )}
       </div>
       {/* Bottom navigation */}
-      <div className={styles.bottomNav}>
+      <div className={styles.bottomNav} style={{ position: 'fixed', bottom: 0, width: '100%', backgroundColor: '#fff', zIndex: 10 }}>
         <div className={styles.navItems}>
           <div className={styles.navItem}>
             <Compass className={styles.navIconActive} />
