@@ -23,12 +23,16 @@ export default function AllExperiencesScreen() {
     navigate('/my-experiences', { state: { cpf: inputCPF } });
   }
 
+  const addExperienceRoute = () => {
+    navigate('/add-experience', { state: { cpf: inputCPF } });
+  }
+
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/reviews')
+    fetch('https://dishdiary.onrender.com/api/reviews')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar dados');
@@ -87,7 +91,7 @@ export default function AllExperiencesScreen() {
             <CookingPot className={styles.navIcon} />
             <span className={styles.navText}>Experiências</span>
           </div>
-          <div className={styles.navItem}>
+          <div className={styles.navItem} onClick={addExperienceRoute}>
             <BadgePlus className={styles.navIcon} />
             <span className={styles.navText}>Adicionar</span>
           </div>

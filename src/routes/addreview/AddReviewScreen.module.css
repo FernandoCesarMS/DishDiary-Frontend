@@ -82,6 +82,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 32px 24px;
 }
 
@@ -109,7 +110,7 @@
 .signInButton {
   width: 100%;
   padding: 12px 16px;
-  background-color: #E1D8C6;
+  background-color: #e9e6df;
   color: #333;
   border: none;
   border-radius: 4px;
@@ -281,148 +282,188 @@
   font-weight: 500;
 }
 
-/* Reading Activity Page Styles */
-.topNav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.backButton {
   padding: 16px;
-  background-color: #e9e6df;
+  background-color: #E1D8C6;
 }
 
-.topNavLeft,
-.topNavRight {
+.backButton svg {
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.backButton svg:hover {
+  background-color: #d6cbb5;
+}
+
+.backButton svg:active {
+  background-color: #cfc1aa;
+}
+
+.createAccountContent {
+  flex: 1;
   display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.formContainer {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.createAccountTitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.createAccountForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.formInput {
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  background-color: #f9f7f4;
+  color: #333;
+  font-size: 16px;
+  outline: none;
+}
+
+.formInput::placeholder {
+}
+
+.passwordHint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #666;
+  margin-top: -8px;
+  padding-left: 8px;
+}
+
+.infoIcon {
+  color: #666;
+}
+
+.showPasswordContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #333;
+}
+
+.showPasswordLabel {
+  font-size: 16px;
+  color: #333;
+}
+
+.createAccountButton {
+  padding: 16px;
+  background-color: #3c2919;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.termsContainer {
+  text-align: left;
+  font-size: 14px;
+  color: #333;
+  margin: 16px 0 24px;
+  line-height: 1.4;
+}
+
+.termsLink {
+  color: #333;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.alreadyHaveAccount {
+  margin-top: 0px;
+}
+
+.dividerWithText {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+}
+
+.dividerText {
+  padding: 0 16px;
+  color: #333;
+  font-size: 14px;
+}
+
+.signInNowButton {
+  width: 100%;
+  padding: 16px;
+  background-color: transparent;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
-.progressContainer {
+.footerLinks {
   display: flex;
-  justify-content: space-around;
-  padding: 16px;
-  background-color: #3c2919;
-  color: white;
-  margin-bottom: 16px;
+  gap: 24px;
 }
 
-.progressItem {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.progressAvatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid white;
-}
-
-.progressInfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.progressNumber {
-  font-size: 24px;
-  font-weight: 600;
-}
-
-.progressLabel {
-  font-size: 14px;
-}
-
-.sectionHeader {
-  padding: 8px 16px;
-  font-size: 18px;
-  color: #666;
-  margin-top: 8px;
-  text-align: center;
-}
-
-.activityList {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 0 16px;
-}
-
-.activityItem {
-  display: flex;
-  align-items: center;
-  background-color: #E1D8C6;
-  width: 85vw;
-  margin-bottom: 2vw;
-  border-radius: 12px;
-  padding: 12px;
-  gap: 12px;
-}
-
-.bookCover {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.activityContent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.activityTitle {
-  font-size: 16px;
-  font-weight: 500;
+.footerLink {
   color: #333;
-}
-
-.activityUser {
-  display: flex;
-  align-items: center;
-  gap: 8px;
   font-size: 14px;
+  text-decoration: none;
+}
+
+.copyright {
   color: #666;
-}
-
-.userAvatar {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.activityTime {
   font-size: 14px;
-  color: #666;
-}
-
-.fab {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background-color: #d35400;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.fabIcon {
-  width: 24px;
-  height: 24px;
-}
-
-.reviewsSection {
-  color: #333;
 }

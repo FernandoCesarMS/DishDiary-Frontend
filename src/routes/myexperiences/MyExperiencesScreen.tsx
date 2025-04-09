@@ -31,13 +31,17 @@ export default function MyExperiencesScreen() {
     navigate('/explore', { state: { cpf: inputCPF } });
   }
 
+  const addExperienceRoute = () => {
+    navigate('/add-experience', { state: { cpf: inputCPF } });
+  }
+
   const [reviews, setReviews] = useState<Review[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     console.log("CPF: %s", inputCPF)
-    fetch(`http://localhost:8080/api/reviews/customer/${inputCPF}`)
+    fetch(`https://dishdiary.onrender.com/api/reviews/customer/${inputCPF}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Erro ao buscar dados');
@@ -58,7 +62,7 @@ export default function MyExperiencesScreen() {
     <div className={styles.container}>
       {/* Header */}
       <div className={styles.myBooksHeader}>
-        <h1>Experiências</h1>
+        <h1>Experiências Anteriores</h1>
       </div>
       <div className={styles.mainContent}>
         {loading && <p>Carregando...</p>}
@@ -74,7 +78,7 @@ export default function MyExperiencesScreen() {
                     <span>{review.estabelecimento}</span>
                     </div>
                     <div className={styles.activityUser}>
-                    <span>{review.usuario.cpf}</span>
+                    <span>{review.mensagem}</span>
                     </div>
                   </div>
                   <div className={styles.activityTime}>{review.nota} de 100</div>
@@ -87,15 +91,15 @@ export default function MyExperiencesScreen() {
       {/* Bottom navigation */}
       <div className={styles.bottomNav}>
         <div className={styles.navItems}>
-          <div className={styles.navItem}>
-            <Compass className={styles.navIcon} onClick={exploreRoute}/>
+          <div className={styles.navItem} onClick={exploreRoute}>
+            <Compass className={styles.navIcon}/>
             <span className={styles.navText}>Explorar</span>
           </div>
           <div className={styles.navItem}>
             <CookingPot className={styles.navIconActive} />
             <span className={styles.navTextActive}>Experiências</span>
           </div>
-          <div className={styles.navItem}>
+          <div className={styles.navItem} onClick={addExperienceRoute}>
             <BadgePlus className={styles.navIcon} />
             <span className={styles.navText}>Adicionar</span>
           </div>
